@@ -1,0 +1,13 @@
+# 数据与产物不进版本库
+data/
+logs/
+*.log
+__pycache__/
+*.pyc
+checkpoints/
+runs/
+*.pth
+*.pt
+*.onnx
+*.tar.gz
+.vscode/
