@@ -107,6 +107,20 @@ powershell -ExecutionPolicy Bypass -File capture.ps1 -Tag ui_main
 
 完整规矩见 `留图规范.md`。`figures/` 不进仓库（里面是数据集原图）。
 
+## 推送前必查（公开仓库）
+
+```bash
+python scripts/leak_check.py --all     # 0 命中才允许 push
+```
+
+扫的是**已跟踪 + 未跟踪且未被忽略**的全部文本文件：姓名、学校、学院、班级、
+教师姓名、学号、手机号、QQ 邮箱、带用户名的本机绝对路径。
+词表放在 `scripts/leak_patterns.txt`，**已 gitignore**——扫描器自身不能含要查的词，
+否则它自己就成了新的泄露源。
+
+历史改写过之后，验证方式只有一个可信：**从 GitHub 重新克隆一份，再扫全部对象和提交说明**。
+只看当前 HEAD、只扫本地工作区都不够。
+
 ## 数据集出处
 
 - Parkhi O M, Vedaldi A, Zisserman A. Cats and dogs[C]. CVPR 2012.（Oxford-IIIT Pet）
