@@ -4,6 +4,8 @@ raw/
 manifests/
 checkpoints/
 logs/*.log
+logs/*.stdout
+logs/*.bak
 !logs/*.csv
 learn/*.bin
 learn/*.jpg
