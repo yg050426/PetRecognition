@@ -1,9 +1,0 @@
-# 下载两个官方数据集，放到 ./data 目录
-from torchvision.datasets import OxfordIIITPet, StanfordDogs
-
-print("开始下载 Oxford-IIIT Pet（约 800MB）...")
-OxfordIIITPet(root="./data", split="train", target="breed", download=True)
-OxfordIIITPet(root="./data", split="test",  target="breed", download=True)
-print("Pet 完成。开始下载 Stanford Dogs（约 1GB）...")
-StanfordDogs(root="./data", split="train", download=True)
-print("全部完成。")
