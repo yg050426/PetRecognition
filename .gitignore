@@ -3,7 +3,8 @@ data/
 raw/
 manifests/
 checkpoints/
-logs/
+logs/*.log
+!logs/*.csv
 learn/*.bin
 learn/*.jpg
 learn/tmp_sort/
