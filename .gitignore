@@ -1,13 +1,15 @@
-# 数据与产物不进版本库
+# 数据与生成物不进仓库（28k 张图有几十 GB，且是可再生的公开数据）
 data/
+raw/
+manifests/
+checkpoints/
 logs/
-*.log
+learn/*.bin
+learn/*.jpg
+learn/tmp_sort/
+*.pth
+*.onnx
+dog.jpg
 __pycache__/
 *.pyc
-checkpoints/
-runs/
-*.pth
-*.pt
-*.onnx
-*.tar.gz
-.vscode/
+.ipynb_checkpoints/
