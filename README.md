@@ -84,7 +84,28 @@ python split_val.py                     # 分层切 15% 验证集
 python train.py --dataset pet --arch resnet18 --stage frozen --epochs 10
 python train.py --dataset pet --arch resnet18 --stage finetune --epochs 20 --lr 1e-4
 python eval_test.py --ckpt checkpoints/pet_resnet18_finetune_best.pth --arch resnet18
+python eval_test.py --ckpt checkpoints/pet_resnet50_finetune_best.pth --arch resnet50 --split val
 ```
+
+`--split test`（默认）读 `data/pet/test` 目录，是承诺指标的口径；
+`--split val` 读 `manifests/pet_val.txt` 清单——验证集不是独立目录，是 `split_val.py` 从 train 里分层挑出来的 551 张，只有名单没有文件夹。
+
+## 实验留图
+
+每轮训练 / 评测跑完，**先出图，再写进展**：
+
+```bash
+python make_figs.py --ckpt checkpoints/pet_resnet50_finetune_best.pth --arch resnet50
+python log2fig.py logs/run_resnet50.log
+powershell -ExecutionPolicy Bypass -File capture.ps1 -Tag ui_main
+```
+
+- `make_figs.py` 从 `logs/*.csv` 直接画论文用的成图（300 dpi，宽 15 cm），
+  图号 / 图注 / 数据来自哪个文件 / 那个文件几点写的，自动记进 `figures/图注清单.md`。
+- `log2fig.py` 把终端日志转成带时间戳和 SHA1 的证据图，放 `figures/证据/`。
+- `capture.ps1` 一键截屏，给软件界面、目录结构、GPU 占用这类现场证据用。
+
+完整规矩见 `留图规范.md`。`figures/` 不进仓库（里面是数据集原图）。
 
 ## 数据集出处
 

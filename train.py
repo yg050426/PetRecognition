@@ -238,6 +238,8 @@ def main():
     else:
         fh.close()
         print("\n最好 val Top-1 = %.3f，权重在 %s，日志在 %s" % (best, best_path, log_path))
+        print("[留图] 这一轮的数据先变成论文里的图，再干别的：")
+        print("       cd /d %s && E:\\Miniconda3\\envs\\pet\\python.exe make_figs.py" % ROOT)
 
 
 if __name__ == "__main__":

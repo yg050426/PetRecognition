@@ -16,3 +16,10 @@ dog.jpg
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# 论文成图与现场证据（含数据集原图，不进仓库；重跑 make_figs.py 就能再生）
+figures/
+
+# 泄露扫描词表 + 本机现场快照，都不进公开仓库
+scripts/leak_patterns.txt
+logs/*.txt
